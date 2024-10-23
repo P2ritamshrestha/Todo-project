@@ -23,7 +23,7 @@ public class SecurityConfig {
         http
                 .csrf(csrf -> csrf.disable())
                 .authorizeHttpRequests(authorize -> authorize
-                        .requestMatchers("//todo-project/**").permitAll()
+                        .requestMatchers("/todo-project","/todo-project/**").permitAll()
                         .anyRequest().authenticated()
                 );
         return http.build();
