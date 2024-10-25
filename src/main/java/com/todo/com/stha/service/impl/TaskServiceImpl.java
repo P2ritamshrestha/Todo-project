@@ -26,6 +26,7 @@ public class TaskServiceImpl implements TaskService {
 
     @Override
     public void createTask(Task task) {
+        task.setFavorite(false);
     taskRepository.save(task);
     }
 
@@ -56,5 +57,21 @@ public class TaskServiceImpl implements TaskService {
     @Override
     public void deleteAllTask() {
     taskRepository.deleteAll();
+    }
+
+    @Override
+    public void checkFavorite(String id) {
+        Task task = taskRepository.findById(id).get();
+        if(task.isFavorite()) {
+            task.setFavorite(false);
+        }else {
+            task.setFavorite(true);
+        }
+        taskRepository.save(task);
+    }
+
+    @Override
+    public List<Task> getFavoriteTasks() {
+        return  taskRepository.findAllFavoriteTasks();
     }
 }

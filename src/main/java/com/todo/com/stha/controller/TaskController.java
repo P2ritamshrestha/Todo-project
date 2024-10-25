@@ -57,4 +57,15 @@ public class TaskController {
         return ResponseEntity.ok("Task delete Successfully");
     }
 
+    @PostMapping("/{id}")
+    public ResponseEntity<?> checkFavorite(@PathVariable String id) {
+        taskService.checkFavorite(id);
+        return ResponseEntity.ok("Task set favorite  Successfully");
+    }
+
+    @GetMapping("/favorite")
+    public ResponseEntity<?> getAllFavoriteTask() {
+        return ResponseEntity.ok(taskService.getFavoriteTasks());
+    }
+
 }

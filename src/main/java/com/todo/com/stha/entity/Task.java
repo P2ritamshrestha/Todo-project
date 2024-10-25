@@ -28,6 +28,7 @@ public class Task {
         IN_PROGRESS
     }
     private Status status;
+    private boolean favorite;
     private String description;
 
 

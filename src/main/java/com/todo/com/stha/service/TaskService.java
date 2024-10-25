@@ -21,4 +21,8 @@ public interface TaskService {
     List<Task> getTasks();
 
     void deleteAllTask();
+
+    void checkFavorite(String id);
+
+    List<Task> getFavoriteTasks();
 }
