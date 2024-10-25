@@ -22,6 +22,14 @@ public class Task {
     @Id
     private String id;
     private String title;
+    public enum Status {
+        PENDING,
+        COMPLETED,
+        IN_PROGRESS
+    }
+    private Status status;
+    private String description;
+
 
 
 }

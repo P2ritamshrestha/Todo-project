@@ -33,6 +33,8 @@ public class TaskServiceImpl implements TaskService {
     public void updateTask(Task task) {
      Task task1 = taskRepository.findById(task.getId()).get();
      task1.setTitle(task.getTitle());
+     task1.setDescription(task.getDescription());
+     task1.setStatus(task.getStatus());
      taskRepository.save(task1);
     }
 
