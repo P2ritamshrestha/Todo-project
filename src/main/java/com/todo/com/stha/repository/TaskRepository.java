@@ -20,5 +20,14 @@ public interface TaskRepository extends MongoRepository<Task, String> {
 
     @Query(value = "{ 'favorite': true }")
     List<Task> findAllFavoriteTasks();
+
+    @Query(value = "{'status' : 'PENDING'}")
+    List<Task> getPendingTasks();
+
+    @Query(value = "{'status' : 'COMPLETED'}")
+    List<Task> getCompleteTasks();
+
+    @Query(value = "{'status' : 'IN_PROGRESS'}")
+    List<Task> getProgressTasks();
 }
 

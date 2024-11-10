@@ -74,4 +74,19 @@ public class TaskServiceImpl implements TaskService {
     public List<Task> getFavoriteTasks() {
         return  taskRepository.findAllFavoriteTasks();
     }
+
+    @Override
+    public List<Task> getPendingTasks() {
+        return  taskRepository.getPendingTasks();
+    }
+
+    @Override
+    public List<Task> getCompleteTasks() {
+        return  taskRepository.getCompleteTasks();
+    }
+
+    @Override
+    public List<Task> getProgressTasks() {
+        return  taskRepository.getProgressTasks();
+    }
 }

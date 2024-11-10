@@ -68,4 +68,20 @@ public class TaskController {
         return ResponseEntity.ok(taskService.getFavoriteTasks());
     }
 
+    @GetMapping("/complete")
+    public ResponseEntity<?> getCompleteTasks() {
+        return ResponseEntity.ok(taskService.getCompleteTasks());
+    }
+
+    @GetMapping("/pending")
+    public ResponseEntity<?> getPendingTasks() {
+        return ResponseEntity.ok(taskService.getPendingTasks());
+    }
+
+    @GetMapping("/progress")
+    public ResponseEntity<?> getProgressTasks() {
+        return ResponseEntity.ok(taskService.getProgressTasks());
+    }
+
+
 }

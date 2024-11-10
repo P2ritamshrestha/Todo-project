@@ -25,4 +25,8 @@ public interface TaskService {
     void checkFavorite(String id);
 
     List<Task> getFavoriteTasks();
+
+    List<Task> getPendingTasks();
+    List<Task> getCompleteTasks();
+    List<Task> getProgressTasks();
 }
