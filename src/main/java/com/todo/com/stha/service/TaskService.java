@@ -18,7 +18,7 @@ public interface TaskService {
     void updateTask(Task task);
     void deleteTask(String id);
     Task getTask(String id);
-    List<Task> getTasks();
+    List<Task> getTasks(Integer page, Integer size);
 
     void deleteAllTask();
 

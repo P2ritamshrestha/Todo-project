@@ -13,6 +13,10 @@ import com.todo.com.stha.entity.Task;
 import com.todo.com.stha.repository.TaskRepository;
 import com.todo.com.stha.service.TaskService;
 import lombok.RequiredArgsConstructor;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -50,8 +54,11 @@ public class TaskServiceImpl implements TaskService {
     }
 
     @Override
-    public List<Task> getTasks() {
-        return taskRepository.findAll();
+    public List<Task> getTasks(Integer page, Integer size) {
+        Pageable pageable = PageRequest.of(page, size, Sort.by("createdDate").descending());
+        Page<Task> pageList = taskRepository.findAllWithPagination(pageable);
+        List<Task> tasks = pageList.getContent();
+        return tasks;
     }
 
     @Override

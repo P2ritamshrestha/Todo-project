@@ -47,8 +47,8 @@ public class TaskController {
     }
 
     @GetMapping()
-    public ResponseEntity<?> getAllTask() {
-        return ResponseEntity.ok(taskService.getTasks());
+    public ResponseEntity<?> getAllTask(@RequestParam("page") Integer page, @RequestParam("size")Integer size) {
+        return ResponseEntity.ok(taskService.getTasks(page, size));
     }
 
     @DeleteMapping()
